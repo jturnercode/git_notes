@@ -56,3 +56,14 @@ It is recommended to use **switch**, as it sole purpose is to select branches.
 
 ### Rename a branch
 
+
+
+## Push branches
+
+research below
+
+> $ git push 
+> fatal: The current branch main has no upstream branch.
+> To push the current branch and set the remote as upstream, use
+>
+>    git push --set-upstream origin main
