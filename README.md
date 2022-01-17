@@ -1,5 +1,5 @@
 # git_notes
-Repository to document and learn git &amp; some markdown  
+Repository to document and learn git better &amp; some markdown  
 
 
 ## What is Git?
@@ -20,3 +20,23 @@ Git is fast and modern:
 - collaboration: people working on the same files
 - not just for programmers: designers and documet authors (knowledge workers)
 - visual way to look at history
+
+
+
+
+# TODO
+- How do i delete remote github commits?
+- How do i configure to be able to push to main branch as owner? currently not the case.
+- Review merge process when someone else sends pull request to my remote repo?
+- Try to --amend messages & --amend commits to remote repo? does this create a new history point?
+- Go over rebase
+- go over reset -soft & -hard
+- git logs
+- checkout see current branch, branches, create branches
+- git stash
+- git diff
+- merge conflicts
+
+- rename master branch 
+
+ 
