@@ -1,43 +1,14 @@
 # Rewrite History
 
-
-## **git commit --amend**
-
-Replace the **last commit** by amending a new commit. This will overwrite the last commit in history. *Note: this only works on last commit, see rebase for more advanced options*
-
-- This is typically used if last commit had easy changes (typos) that you want to change without having to create a new commit. 
-
-Amend changes with a commit, note below flags
-- **--no-edit** flag keeps from overwriting the last commit's message
-- **-m** flag to overwrite old message with new one
-
-> git commit --amend --no-edit
-
-
-Before --amend
-```
-4dd2cdd (HEAD -> master) adding file2.py
-fa6818b Initial commit
-```
-
-After --amend. *Note: id of last commit changes*
-```
-bb46bdc (HEAD -> master) adding file2.py
-fa6818b Initial commit
-```
-
-**\*\*Important: Update Remote Repo\*\***  
-Once a commit is amended a git push will fail because Git will see the amended commit and the remote commit as diverged content. The **--force** option must be used to push an amended commit.
-
-> git push --force origin main
-
+**Important!! Rewriting commit history may cause problems if others are using your remote repo!! Caution must be taken to understand possible consequences. Re-write of history should be ok before pushing to remote repo or if you are the only user on remote repo.**
 
 
 ## **git rebase -i**
 
 *Note: cannot run rebase unless you commit or stash unstaged changes*
 
-### Reword commit messages
+### Reword commit messages  
+
 Rewrite any commit messages
 
 > git rebase -i
