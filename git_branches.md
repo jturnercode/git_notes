@@ -24,3 +24,20 @@ got remote and local main and master branches
 ## switch branches
 
 
+## *Delete Local Branch*
+
+> git branch -d \<local-branch\>
+
+
+Git might refuse to delete your local branch when it contains commits that *have been merged into any other local branches or pushed to a remote repository. This is a very sensible rule that protects you from inadvertently losing commit data.*  
+
+**Use Caution with below!!**  
+If you want force a delete of a branch nonetheless (e.g. because you've programmed yourself into a dead end and produced commits that aren't worth keeping) you can do so with the "-D" flag:
+
+> git branch -D \<local-branch\>
+
+## *Delete Remote Branch*
+
+To delete a remote branch, you need to use the "git push" command:
+
+> git push origin --delete \<remote-branch-name\>
