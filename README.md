@@ -1,8 +1,10 @@
-# git_notes
+# git notes
+
 Repository to document and learn git better &amp; some markdown  
 
 
-## What is Git?
+## **What is Git?**
+
 What is version control?  
 &emsp;Helps with coding process: Create, save, edit, and then save again  
 
@@ -22,21 +24,25 @@ Git is fast and modern:
 - visual way to look at history
 
 
+# Topics
+
+- [git Configuration](git_config.md)
+- [git Basics](git_basics.md)
+- [git Branches](git_branches.md)  
+- [Fix Recent Changes](Fix_Recent_Changes.md)  
+- [Fix Old Changes](Fix_Old_Changes.md)
+- [Remote Repositories](git_remote.md)
+
 
 
 # TODO
-- How do i delete remote github commits?
-- How do i configure to be able to push to main branch as owner? currently not the case.
 - Review merge process when someone else sends pull request to my remote repo?
-- Try to --amend messages & --amend commits to remote repo? does this create a new history point?
-- Go over rebase
-- go over reset -soft & -hard
-- git logs
-- checkout see current branch, branches, create branches
+- document reset -soft & -hard better
+- document git logs, reflog better
+- document branches better, merge conflicts
 - git stash
 - git diff
-- merge conflicts
-
-- rename master branch 
+- git cherry-pick
+- rename master branch?
 
  
