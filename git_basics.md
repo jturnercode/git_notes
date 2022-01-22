@@ -140,3 +140,17 @@ Use *git show* to inspect a single commit.
 
 More ways to review commits below.  
 https://git-scm.com/book/en/v2/Git-Tools-Revision-Selection
+
+### *Find Text in all Git Commits*
+
+*Scenerio: Need to check if any sensative info is located in any commit within repo*
+
+Use the -G flag:
+
+> git log -G \<regex-pattern\> -i
+
+-i will ignore case.  
+Will return log of commits that contains string. You can use github or "-p" to confirm.
+
+**document more info from here**
+https://www.w3docs.com/learn-git/git-log.html

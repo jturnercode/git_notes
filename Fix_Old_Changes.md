@@ -103,4 +103,10 @@ Delete "temp" branch once you are good with changes.
 > git branch -d
 
 
+12. If remote repo exisit, force push.
+**This will re-wirite commit hashes in repo causing problems for anyone else using repo!**
+
+> git push origin master --force
+
+
 
