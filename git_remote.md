@@ -1,54 +1,72 @@
 # Remote Repositories
 
 
-## Create your own Github Repo
 
 ## **git remote**
 
-Manage the set of repositories ("remotes") whose branches you track
+After working on a local git repo, you can use the 'remote' command to add local repo to remote repo.
+First create repo in your github account.  
+Then use below command to link local repo to remote repo
 
 > *git remote add \<name\> \<repository url\>*
 
 *example: git remote add origin https://github.com/reponame*
 
-*Note: origin is the recommended or by default used by the developer for the first or primary repository on GitHub. It is not restricted and you can use your own name.*
+*Note: origin is the recommended default name used primary repository on GitHub. It is not restricted and you can use your own name.*
 
-Turn on verbose details with -v. Can use with other commands
-Below shows remote url
+### **Verify remote repo**
 
 >git remote -v
 
 
+### **Renaming a remote repository**
+Use the git remote rename command to rename an existing remote.
+
+The git remote rename command takes two arguments:
+
+* An existing remote name, for example, origin
+* A new name for the remote, for example, destination
+
+> *git remote rename \<oldname\> \<newname\>*
+
+### **Remove remote repository**
+
+> git remote rm \<name\>
+
+
+### **Changing a remote repository's URL**
+The git remote set-url command changes an existing remote repository URL.
+
+> git remote set-url origin https://github.com/USERNAME/REPOSITORY.git
 
 
 
-## Work with exisiting Github repo
 
 ## **Git clone**
-Copy (clone) a repository into a new directory.
+Clone is used to work with exisiting Github repo.
+Clone (copy) a remote repository into a local directory.
 Clones can be gathered from local or remote repositories.
 
+### **Clone to specific folder**
+Clone the repository located at ＜repo_url＞ into the folder called ＜directory＞ on the local machine.
 
-### Clone to specific folder
-Clone the repository located at ＜repo＞ into the folder called ~＜directory＞! on the local machine.
-
-> git clone \<repo\> \<directory\>
-
+> git clone \<repo_url\> \<directory\>
 
 
-### cloning a specific tag
+
+### **cloning a specific tag**
 Clone the repository located at ＜repo＞ and only clone the ref for ＜tag＞.
 
 > git clone --branch <tag> <repo>
 
-### shallow clone
+### **shallow clone**
 Clone the repository located at ＜repo＞ and only clone the 
 history of commits specified by the option depth=1.
 An extensive commit history may cause scaling problems such as disk space usage limits and long wait times when cloning.
 
 > git clone -depth=1 <repo>
 
-### git clone branch
+### **git clone branch**
 The -branch argument lets you specify a specific branch to clone instead of the branch the remote HEAD is pointing to, usually the main branch.
 
 > git clone -branch new_feature git://remoterepository.git
