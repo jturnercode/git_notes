@@ -1,29 +1,41 @@
 
 # Git Basics
 
-## **Git Help**
+## Git Help
 
 Access common git commands
-> git help
+
+```
+git help
+```
+
 
 Pull up doc for a specific command
-> git \<command\> --help
+```
+git <command> --help
+```
 
 Check git version
-> git --version
+ ```
+ git --version
+ ```
 
 
-## **git init**
+## git init
 
 Typically if you are not cloning a remote project to a current local directory, the first step would be to initial a git repository locally. 
 
 First create a folder on local machine that will hold files.   
 Initialize a directory
 
->git init
+```
+git init
+```
 
 *Note: We can also create directory and initialize at same time*
->git init \<directory_name\>
+```
+git init <directory_name>
+```
 
 The init command will create a .git folder which holds all files that git uses to track history. There is no need to touch any of these files.
 
@@ -62,11 +74,15 @@ The basic Git workflow goes something like this:
 
 The **status** command is one of the most used commands that let you know state of the local git repo. It also provides helpful information on possible next steps while working within local repository.  
 
-> git status
+```
+git status
+```
 
 For summarized version:
 
-> git status -s
+```
+git status -s
+```
 
 ## git add  
 
@@ -78,19 +94,24 @@ For summarized version:
 
 Add changes to head
 
-> git commit -m "message"
+```
+git commit -m "message"
+```
 
 *Note: Below command will add & commit alll files in working tree with one line. This is not not recommended, use with caution!*
 
-> git commit -am "message"
-
+```
+git commit -am "message"
+```
 
 
 ## **git log**
 
 Show commited logs:
 
-> git log
+```
+git log
+```
 
 **\*To exit a huge log, press 'q' + enter**  
 
@@ -111,7 +132,9 @@ Date:   Thu Jan 13 17:58:06 2022 -0600
 
 Show in compact form:
 
-> git log --oneline
+```
+git log --oneline
+```
 
 ```
 4dd2cdd (HEAD -> master) adding file2.py
@@ -127,7 +150,9 @@ fa6818b Initial commit
 To view differences between each commit while using the log command, use the **--patch** or **-p** option:
 
 
-> git log -p -3
+```
+git log -p -3
+```
 
 *Note: The "-3" denotes it will show only the last 3 commits.* 
 
@@ -136,20 +161,25 @@ To view differences between each commit while using the log command, use the **-
 
 Use *git show* to inspect a single commit.
 
-> git show \<commit_hash\>
+```
+git show <commit_hash>
+```
 
 More ways to review commits below.  
 https://git-scm.com/book/en/v2/Git-Tools-Revision-Selection
 
 ### *Find Text in all Git Commits*
 
-*Scenerio: Need to check if any sensative info is located in any commit within repo*
+*#Scenerio: Need to check if any sensative info is located in any commit within repo*
 
 Use the -G flag:
 
-> git log -G \<regex-pattern\> -i
+```
+git log -G <regex-pattern> -i
+```
 
--i will ignore case.  
+*-i* will ignore case.
+
 Will return log of commits that contains string. You can use github or "-p" to confirm.
 
 **document more info from here**
