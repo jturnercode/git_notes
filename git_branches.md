@@ -131,3 +131,66 @@ https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addres
 
 ### Rename a branch
 ??
+
+## **git stash**
+
+Uses:
+- Put changes that are not ready to be committed aside to checkout/switch to another branch
+- Apply stashed changes back later to branch
+- The above steps are needed becasue you cannot switch/checkout another branch with a dirty directory.
+
+Official Documentation:
+Use git `stash` when you want to record the current state of the working directory and the index, but want to go back to a clean working directory. The command saves your local modifications away and reverts the working directory to match the `HEAD` commit.
+
+```
+git stash
+```
+
+Use `-u` flag if you want to stash untracked files:
+
+```
+git stash -u
+```
+
+To add a specific message to a stash:
+```
+git stash push -m 'my comment'
+```
+
+
+### *List Stashed Changes*
+The modifications stashed away by this command can be listed with `git stash list`
+
+```
+$ git stash list
+
+stash@{0}: WIP on master: dcfa333 Update: markup
+```
+Note above specifies a stash index of '0' for *stash@{0}: ...*
+
+### *Restore Stashed Changes*
+
+Use `apply` to restore specific stash to working directory. Need to specify stash index. Use `git stash list` to view all stash records by index.
+
+```
+$ git stash apply stash_index
+```
+
+### *Show Stashed Changes*
+
+```
+git stash show -p stash_index
+```
+`-p` is option, will show details of stashed changes. Not including will show only files that are saved in stash.
+
+
+### *Create Branch from Stashed Changes*
+
+Use:
+- Realize current work should be on a different branch
+- First save changes to a stash
+- Run `git stash branc` to create and switch to new branch
+
+```
+git stash branch branch_name stash_index
+```
