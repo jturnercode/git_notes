@@ -1,45 +1,6 @@
 
 # Git Basics
 
-## git Help
-Access common git commands.
-
-```
-git help
-```
-
-
-Pull up doc for a specific command.
-```
-git <command> --help
-```
-
-## git Version  
-Check git version
- ```
- git --version
- ```
-
-
-## git Init
-
-Typically if you are not cloning a remote project to a current local directory, the first step would be to initial a git repository locally. 
-
-First create a folder on local machine that will hold files.   
-Initialize a directory
-
-```
-git init
-```
-
-*Note: We can also create directory and initialize at same time*
-```
-git init <directory_name>
-```
-
-The init command will create a .git folder which holds all files that git uses to track history. There is no need to touch any of these files.
-
-
 ## git Workflow
 
 Git has three main states that your files can reside in: modified, staged, and committed:
@@ -67,11 +28,72 @@ The basic Git workflow goes something like this:
 
 1. You modify files in your working tree.
 2. You selectively stage just those changes you want to be part of your next commit, which adds only those changes to the staging area.
-3. You do a commit, which takes the files as they are in the staging area and stores that snapshot permanently to your Git directory.
+3. You do a commit, which takes the files as they are in the staging area and stores that snapshot permanently to your Git directory.  
+
+git compresses files very well and does not store duplicate content.  
 
 
+## git help
+Access common git commands.
 
-##  git Status  
+```
+git help
+```
+
+
+Pull up doc for a specific command.
+```
+git <command> --help
+```
+
+## git version  
+Check git version
+ ```
+ git --version
+ ```
+
+
+## git init  
+Typically if you are not cloning a remote project to a current local directory, the first step would be to initial a git repository locally. 
+
+First create a folder on local machine that will hold files.   
+Initialize a directory
+
+```
+git init
+```
+
+> *Note: We can also create directory and initialize at same time*
+```
+git init <directory_name>
+```
+
+The init command will create a .git folder which holds all files that git uses to track history. There is no need to touch any of these files.
+
+## Ignoring Files
+
+The `.gitignore` file stores a list of files, file types, or directories git should ignore while staging or commiting; ie git status will not track changes if listed in file.  
+
+Rules:  
+- Use `#` to add notes in file.
+- Use `*` as a wildcard for describing general file names or types.
+- File should be named `.gitignaore` and at min be placed inside root of file system where repo is initiated.
+
+Example contents of `.gitignore`:
+```
+# ignore Logs folder
+Logs/
+
+# ignore these file
+File1.txt
+image.jpg
+
+# ignore all .txt files
+*.txt
+```
+> Note: To get .gitignore templates for different languages, go to github/gitignore repository; download file for language as a starting point
+
+##  git status  
 
 The `status` command is one of the most used commands that let you know state of the local git repo. It also provides helpful information on possible next steps while working within local repository.  
 
