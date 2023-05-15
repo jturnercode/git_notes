@@ -28,6 +28,15 @@ Git is fast and modern:
 
 - [Git Configuration](git_config.md)
 - [Basics](git_basics.md)
+    - init
+    - add
+    - commit
+    - status
+    - Rename Files
+    - Remove Files
+    - Untrack commited file
+    - log
+    - show
 - [Branches](git_branches.md)
     - Merge
     - Stash

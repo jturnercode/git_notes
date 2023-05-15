@@ -148,6 +148,7 @@ Remember to commit file rename change as needed.
 
 
 ## Removing files  
+
 To remove files from local directory and staging area  
 ```
 git rm file_name
@@ -158,7 +159,7 @@ Then commit this change to update repository
 git commit –m "deleted file_name"
 ```
 
-## Untrack Committed File
+## Untrack Committed File  
 
 File that has been wrongly committed but don't want to remove from directory.
 
@@ -226,7 +227,7 @@ git log -p -3
 
 ## git show
 
-Use *git show* to inspect a single commit.
+Use `git show` to inspect a single commit.
 
 ```
 git show <commit_hash>
