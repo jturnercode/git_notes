@@ -1,27 +1,27 @@
 
 # Git Basics
 
-## Git Help
-
-Access common git commands
+## git Help
+Access common git commands.
 
 ```
 git help
 ```
 
 
-Pull up doc for a specific command
+Pull up doc for a specific command.
 ```
 git <command> --help
 ```
 
+## git Version  
 Check git version
  ```
  git --version
  ```
 
 
-## git init
+## git Init
 
 Typically if you are not cloning a remote project to a current local directory, the first step would be to initial a git repository locally. 
 
@@ -40,8 +40,7 @@ git init <directory_name>
 The init command will create a .git folder which holds all files that git uses to track history. There is no need to touch any of these files.
 
 
-## **Git Workflow**
-
+## git Workflow
 
 Git has three main states that your files can reside in: modified, staged, and committed:
 - Modified means that you have changed the file but have not committed it to your database yet.
@@ -51,13 +50,16 @@ Git has three main states that your files can reside in: modified, staged, and c
 This leads us to the three main sections of a Git project: the working tree, the staging area, and the Git directory.  
 <--- **add diagram describing workflow** --->
 
-### *Working Tree (Working Directory)*
+
+### Working Tree (Working Directory)
 Typically noted as the working directory, is where all working files and folders live.
 
-### *Staging Area (Index)*
+
+### Staging Area (Index)
 The staging area is a file, generally contained in your Git directory, that stores information about what will go into your next commit. Its technical name in Git parlance is the “index”, but the phrase “staging area” works just as well.
 
-### *Git Directory*
+
+### Git Directory
 
 The Git directory is where Git stores the metadata and object database for your project. This is the most important part of Git, and it is what is copied when you clone a repository from another computer.
 
@@ -69,10 +71,9 @@ The basic Git workflow goes something like this:
 
 
 
+##  git Status  
 
-## **git status**  
-
-The **status** command is one of the most used commands that let you know state of the local git repo. It also provides helpful information on possible next steps while working within local repository.  
+The `status` command is one of the most used commands that let you know state of the local git repo. It also provides helpful information on possible next steps while working within local repository.  
 
 ```
 git status
@@ -86,11 +87,20 @@ git status -s
 
 ## git add  
 
-<---- **add info** ---->
+Use `add` command to move files to staging area (also called index)
+
+Add all files
+```
+git add .
+```
+
+Add a specific file(s)
+```
+git add file1.txt file2.txt
+```
 
 
-
-## **git commit**  
+## git commit 
 
 Add changes to head
 
@@ -98,22 +108,58 @@ Add changes to head
 git commit -m "message"
 ```
 
-*Note: Below command will add & commit alll files in working tree with one line. This is not not recommended, use with caution!*
+> *Note: Below command will add & commit all files in working tree with one line. This is not not recommended, use with caution!*
 
 ```
 git commit -am "message"
 ```
 
+## Renaming files  
+Rename file for git; updates directory and staging area at same time
 
-## **git log**
+> *Important to do it this way to keep commit history of renamed files*
 
-Show commited logs:
+```
+git mv file_A.txt file_B.txt
+```
+Remember to commit file rename change as needed.
+
+
+## Removing files  
+To remove files from local directory and staging area  
+```
+git rm file_name
+```
+
+Then commit this change to update repository  
+```
+git commit –m "deleted file_name"
+```
+
+## Untrack Committed File
+
+File that has been wrongly committed but don't want to remove from directory.
+
+```
+$ git rm --cached <filename>
+```
+
+
+## Untrack Committed Folder
+
+```
+$ git rm -r --cached <folder>
+```
+
+## git log
+
+Show commited logs history in console.
 
 ```
 git log
 ```
 
-**\*To exit a huge log, press 'q' + enter**  
+> *TIP! To exit a huge log, press 'q' + enter*
 
 *typical output:*
 ```
@@ -143,44 +189,26 @@ git log --oneline
 3cf2f71 (origin/master) adding .ipynb file
 fa6818b Initial commit
 ```
+> *Extra: See 'Pretty Formats' in git log --help for many more options*
 
-*See 'Pretty Formats' in git log --help for many more options*
 
-
-To view differences between each commit while using the log command, use the **--patch** or **-p** option:
+To view differences between each commit while using the log command, use the `--patch` or `-p` option:
 
 
 ```
 git log -p -3
 ```
+> *Note: The "-3" denotes it will show only the last 3 commits.* 
 
-*Note: The "-3" denotes it will show only the last 3 commits.* 
 
 
-## **git show**
+## git show
 
 Use *git show* to inspect a single commit.
 
 ```
 git show <commit_hash>
 ```
+[More ways to review commits here](https://git-scm.com/book/en/v2/Git-Tools-Revision-Selection)
 
-More ways to review commits below.  
-https://git-scm.com/book/en/v2/Git-Tools-Revision-Selection
 
-### *Find Text in all Git Commits*
-
-*#Scenerio: Need to check if any sensative info is located in any commit within repo*
-
-Use the -G flag:
-
-```
-git log -G <regex-pattern> -i
-```
-
-*-i* will ignore case.
-
-Will return log of commits that contains string. You can use github or "-p" to confirm.
-
-**document more info from here**
-https://www.w3docs.com/learn-git/git-log.html

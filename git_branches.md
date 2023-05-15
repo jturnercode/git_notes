@@ -1,17 +1,20 @@
 # Git Branches  
 
-## **Core Concepts**
+[More Info](https://www.atlassian.com/git/tutorials/using-branches)
+
+## Core Concepts
 
 ### *HEAD Branch*
-HEAD branch is the currently active or checked out branch  
-When running *git status* you will see it listed in output
+HEAD branch is the currently active or checked out branch.  
+When running *git status* you will see it listed in output.
 
 ```
-$ git status  
+$ git status 
 
-On branch master  
-Your branch is up to date with 'origin/master'.
-```
+> On branch master  
+> Your branch is up to date with 'origin/master'.
+```        
+
 - 'master' is the current local branch
 - 'origin/master' is the remote branch in this case
 
@@ -23,12 +26,12 @@ The **remote branches** reside on network server or cloud with services like Git
 Local branches are synced with remote branches.
 
 
-## **git branch**
+## Branches
 
 `git branch` command is used to list, create, or delete branches
 
 
-### *List Branches*
+### List Branches
 
 List local branches
 
@@ -51,7 +54,7 @@ List all branches (local and remote), use -a flag
 ```
 
 
-### *Create new branch*
+### Create new branch
 
 ```
 git branch branch_name
@@ -63,9 +66,9 @@ Note:
 
 
 
-## **Switch between Branches**
+### Switch between Branches
 
-**Note if your working directory or staging area has uncommitted changes that conflict with the branch you’re checking out, Git won’t let you switch branches. It’s best to have a clean working state when you switch branches. There are ways to get around thisnamely, stashing and commit amending.**
+**Note if your working directory or staging area has uncommitted changes that conflict with the branch you’re checking out, Git won’t let you switch branches. It’s best to have a clean working state when you switch branches. There are ways to get around this namely, stashing and commit amending.**
 
 <!-- TODO: Add link to stash section -->
 
@@ -83,7 +86,7 @@ git checkout branch_name
 ```
 
 
-## **Delete Local Branch**
+### Delete Local Branch
 
 ```
 git branch -d local_branch_name
@@ -99,40 +102,90 @@ If you want force a delete of a branch nonetheless (e.g. because you've programm
 git branch -D local_branch_name
 ```
 
-## **Delete Remote Branch**
+## Push New Branch to Repo
+
+**test code below**
+```
+$ git push -u <remote> <branch_name>
+```
+We usually use the shortname for 'remote' url, typically 'origin'  
+
+The `-u` flag creates a tracking reference for every branch that you successfully push onto the remote repository. The local branch you push is automatically linked with the remote branch. This allows you to use commands such as git pull without any arguments.  
+
+To check existing remote links and verify shortnames use:
+```
+$ git remote -v
+```
+
+
+## Delete Remote Branch
 
 To delete a remote branch, you need to use the "git push" command:
-
 ```
-git push origin --delete remote-branch-name
+git push <remote> --delete <remote-branch-name<>
 ```
-
-
-## **Push branches**
-
-**research below!**
-update branch?
-```
-$ git push 
-
-fatal: The current branch main has no upstream branch.
-To push the current branch and set the remote as upstream, use
-
-   git push --set-upstream origin main
-```
-
-## **Merge**
-
-
-### *Merge Conflicts*
-
-https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line
-
 
 ### Rename a branch
 ??
 
-## **git stash**
+
+## Summary of Feature Branch Workflow
+
+Typically when trying to a commit to another project or working for a lead that will review your work.
+
+1. Clone project:
+```
+$ git clone git@example.com:project-name.git
+```
+
+2. Create & cheackout new feature branch:
+```
+$ git checkout -b feature_name
+```
+
+3. Write code. Commit changes:
+```
+$ git commit -am "My feature is ready"
+```
+4. Push your branch to GitLab:
+```
+$ git push origin feature_name
+```
+
+5. Review your code on commits page.
+6. Create a merge request.
+
+Your team lead reviews the code and merges it to the main branch.
+
+
+
+
+## Merge
+
+[More Info](https://www.atlassian.com/git/tutorials/using-branches/git-merge)
+
+### Basic Merge Steps
+
+Suppose you are ready to merge a branch back to *main* branch.  
+First make sure the *main* is the head branch.
+```
+$ git switch main
+```
+
+
+
+### Merge Conflicts
+
+https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line
+
+
+
+
+
+
+
+
+## git stash
 
 Uses:
 - Put changes that are not ready to be committed aside to checkout/switch to another branch

@@ -1,9 +1,9 @@
 # git notes
 
-Repository to document and learn git better &amp; some markdown  
+Repository to document and learn git better &amp; practice markdown.  
 
 
-## **What is Git?**
+## What is Git?
 
 What is version control?  
 &emsp;Helps with coding process: Create, save, edit, and then save again  
@@ -24,18 +24,28 @@ Git is fast and modern:
 - visual way to look at history
 
 
-# Topics
+## Topics
 
-- [git Configuration](git_config.md)
-- [git Basics](git_basics.md)
-- [git Branches](git_branches.md)  
-- [Fix Recent Changes](Fix_Recent_Changes.md)  
-- [Fix Old Changes](Fix_Old_Changes.md)
+- [Git Configuration](git_config.md)
+- [Basics](git_basics.md)
+- [Branches](git_branches.md)
+    - Merge
+    - Stash
 - [Remote Repositories](git_remote.md)
+    - Push
+    - Pull
+- [Clone](clone.md)
+- Fix Recent Changes  
+    - [Restore](restore.md)
+    - [Amend Commit](amend.md)
+- [Fix Old Changes](Fix_Old_Changes.md)
+- Specific Actions
+    - [Move Commit to Another Branch](move_commit.md)
+    - [Search for text in commits](search_commits.md)
 
 
 
-# TODO
+## TODO
 - Review merge process when someone else sends pull request to my remote repo?
 - document reset -soft & -hard better
 - document git logs, reflog better
