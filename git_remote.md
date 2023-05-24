@@ -87,9 +87,6 @@ $ git remote set-url origin https://github.com/USERNAME/REPOSITORY.git
 
 
 
-
-
-
 # Push & Pull
 
 ## Git pull
@@ -109,14 +106,23 @@ pulling into local directory will possibly overwrite local repo files
 
 
 
-
 ## Git push
-Updates remote refs using local refs
+Updates remote refs using local refs  
 
 
-??To push the current branch and set the remote as upstream, use:
+To push the current branch and set the remote as upstream, use:
 ```
 $ git push --set-upstream origin master
+```
+
+### Create & Push New Remote Branch
+After creating a new branch and committing changes locally.
+If remote branch does not exist running `git push` will result in error.
+
+Run below to create new branch at remote repo and push changes.
+
+```
+git push --set-upstream origin <new_branch_name>
 ```
 
 ### Push to Specific Branch
@@ -142,23 +148,5 @@ Simple of it is just run the push command specifying the 'remote name' & 'branch
  $ git push reponame2
 ```
 
-
-### pushing new branch???
-output from creating master branch over main branch
-remote: Create a pull request for 'master' on GitHub by visiting:
-remote:      https://github.com/.../git_notes/pull/new/master
-remote:
-To https://github.com/.../git_notes.git
- * [new branch]      master -> master
-Branch 'master' set up to track remote branch 'master' from 'origin'. 
-
-
-### push errors
-
-1. error: failed to push some refs to 'https://github.com/.../git_notes.git'
-Pushed to main/master branch with result above error. This is likely due to not being recognized as owner of the repo. Need to setup remote with password locally? or submit new branch so owner can merge
-
-read
-https://archaeogeek.github.io/gettingstartedwithgit/github/pullrequest.html
 
 
