@@ -9,14 +9,17 @@ HEAD branch is the currently active or checked out branch.
 When running `git status` you will see it listed in output.
 
 ```
-$ git status 
-
-> On branch master  
-> Your branch is up to date with 'origin/master'.
+git status 
 ```        
 
-- 'master' is the current local branch
-- 'origin/master' is the remote branch in this case
+Output:
+```
+ On branch master  
+ Your branch is up to date with 'origin/master'.
+```
+
+> `master` is the current local branch
+> `origin/master` is the remote branch in this case
 
 
 ### Local & Remote Branches
@@ -34,24 +37,30 @@ Local branches are synced with remote branches.
 ### List Local Branches
 
 ```
-$ git branch
+git branch
+```
 
+Output:
+```
 * master
   temp
 ```
-*Note: the active branch is noted with asterisk* 
+
+> *Note: the active branch is noted with asterisk* 
 
 
 ### List all branches (local and remote), use -a flag
 
 ```
- $ git branch -a  
- 
- * master  
-   remotes/origin/main  
-   remotes/origin/master  
+git branch -a  
 ```
 
+Output:
+```
+* master  
+  remotes/origin/main  
+  remotes/origin/master  
+```
 
 ### Create new branch
 
@@ -107,7 +116,7 @@ git branch -D local_branch_name
 
 **Test Code Below**
 ```
-$ git push -u <remote> <branch_name>
+git push -u <remote> <branch_name>
 ```
 We usually use the shortname for 'remote' url, typically 'origin'  
 
@@ -115,7 +124,7 @@ The `-u` flag creates a tracking reference for every branch that you successfull
 
 To check existing remote links and verify shortnames use:
 ```
-$ git remote -v
+git remote -v
 ```
 
 
@@ -135,22 +144,26 @@ git push <remote> --delete <remote-branch-name<>
 Typically when trying to a commit to another project or working for a lead that will review your work.
 
 1. Clone project:
+
 ```
-$ git clone git@example.com:project-name.git
+git clone git@example.com:project-name.git
 ```
 
 2. Create & cheackout new feature branch:
+
 ```
-$ git checkout -b feature_name
+git checkout -b feature_name
 ```
 
 3. Write code. Commit changes:
+
 ```
-$ git commit -am "My feature is ready"
+git commit -am "My feature is ready"
 ```
 4. Push your branch to GitLab:
+
 ```
-$ git push origin feature_name
+git push origin feature_name
 ```
 
 5. Review your code on commits page.
@@ -169,8 +182,9 @@ Your team lead reviews the code and merges it to the main branch.
 
 Suppose you are ready to merge a branch back to *main* branch.  
 First make sure the *main* is the head branch.
+
 ```
-$ git switch main
+git switch main
 ```
 
 
@@ -194,43 +208,79 @@ Use git `stash` when you want to record the current state of the working directo
 git stash
 ```
 
-### Use `-u` flag if you want to stash untracked files:
+### Stash Untracked Files
+
+Use `-u` flag if you want to stash untracked files:
 
 ```
 git stash -u
 ```
 
-### Add message
+### Add Stash Message
 
-Calling `git stash` without any arguments is equivalent to `git stash push`. For quickly making a snapshot, you can omit "push". In this mode, non-option arguments are not allowed to prevent a misspelled subcommand from making an unwanted stash entry. If optional arguments are necessary like `-m` for message `push` is required.
+Calling `git stash` without any arguments is equivalent to `git stash push`. For quickly making a snapshot, you can omit "push". In this mode, non-option arguments are not allowed to prevent a misspelled subcommand from making an unwanted stash entry.  
+If optional arguments are necessary like `-m` for message `push` is required.
 
 To add a specific message to a stash:
 ```
 git stash push -m 'my comment'
 ```
-*Note: in the documentation, `git stash save` has been deprecated in favor of `git stash push`.*
+> *Note: in the documentation, `git stash save` has been deprecated in favor of `git stash push`.*
 
-### List Stashed Changes
-The modifications stashed away by this command can be listed with `git stash list`
+### Stash List
+The modifications stashed away by this command can be listed with `git stash list`.
 
 ```
-$ git stash list
+git stash list
+```
 
+output:
+```
 stash@{0}: WIP on master: dcfa333 Update: markup
 ```
-Note above specifies a stash index of '0' for `stash@{0}: ...`
+
+> Note above specifies a stash index of '0' for `stash@{0}: ...`
 
 
-### Restore Stashed Changes
+### Stash Apply
+
+To restore stashed changes.
 
 Use `apply` to restore specific stash to working directory. Need to specify stash index. Use `git stash list` to view all stash records by index.
 
 ```
-$ git stash apply stash_index
+git stash apply stash@{n}
+```
+
+Or:
+```
+git stash apply n
 ```
 
 
-### Show Stashed Changes
+### Stash Drop
+
+Remove a single stash entry from the list of stash entries.
+
+```
+git stash drop stash@{n}
+```
+
+
+### Stash Pop
+
+Remove a single stashed state from the stash list and apply it on top of the current working tree state.
+
+Applying the state can fail with conflicts; in this case, it is not removed from the stash list. You need to resolve the conflicts by hand and call git stash drop manually afterwards.  
+
+```
+git stash pop stash@{n}
+```
+
+
+### Stash Show
+
+Show a list of stashed
 
 ```
 git stash show -p stash_index
