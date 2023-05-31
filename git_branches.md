@@ -4,9 +4,9 @@
 
 ## Core Concepts
 
-### *HEAD Branch*
+### HEAD Branch
 HEAD branch is the currently active or checked out branch.  
-When running *git status* you will see it listed in output.
+When running `git status` you will see it listed in output.
 
 ```
 $ git status 
@@ -19,7 +19,7 @@ $ git status
 - 'origin/master' is the remote branch in this case
 
 
-### *Local & Remote Branches*
+### Local & Remote Branches
 
 Most of time we are working with **local branches** that reside on our local machine within our git repository.  
 The **remote branches** reside on network server or cloud with services like Github.
@@ -31,9 +31,7 @@ Local branches are synced with remote branches.
 `git branch` command is used to list, create, or delete branches
 
 
-### List Branches
-
-List local branches
+### List Local Branches
 
 ```
 $ git branch
@@ -44,7 +42,8 @@ $ git branch
 *Note: the active branch is noted with asterisk* 
 
 
-List all branches (local and remote), use -a flag
+### List all branches (local and remote), use -a flag
+
 ```
  $ git branch -a  
  
@@ -62,7 +61,7 @@ git branch branch_name
 
 Note: 
 1. Branches can only be created in local repository, then pushed to remote repo.
-2. After creating a new branch you must 'switch' to new branch before begining work. **See important note in 'Switch between Branches'
+2. After creating a new branch you must `switch` to new branch before begining work. **See important note in 'Switch between Branches'.**
 
 
 
@@ -79,7 +78,9 @@ It is recommended to use *switch*, as it sole purpose is to select branches.
 git switch branch_name
 ```
 
-*checkout* can also be used, but it also has a variety of uses.
+### Checkout Branch
+
+`checkout` can also be used, but it also has a variety of uses. Switch is recommend for simple purpose of changing current branch.
 
 ```
 git checkout branch_name
@@ -102,9 +103,9 @@ If you want force a delete of a branch nonetheless (e.g. because you've programm
 git branch -D local_branch_name
 ```
 
-## Push New Branch to Repo
+### Push New Branch to Repo
 
-**test code below**
+**Test Code Below**
 ```
 $ git push -u <remote> <branch_name>
 ```
@@ -118,7 +119,7 @@ $ git remote -v
 ```
 
 
-## Delete Remote Branch
+### Delete Remote Branch
 
 To delete a remote branch, you need to use the "git push" command:
 ```
@@ -126,10 +127,10 @@ git push <remote> --delete <remote-branch-name<>
 ```
 
 ### Rename a branch
-??
+*??*
 
 
-## Summary of Feature Branch Workflow
+### Summary of Feature Branch Workflow
 
 Typically when trying to a commit to another project or working for a lead that will review your work.
 
@@ -173,19 +174,13 @@ $ git switch main
 ```
 
 
-
 ### Merge Conflicts
 
 https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line
 
 
 
-
-
-
-
-
-## git stash
+## Stash
 
 Uses:
 - Put changes that are not ready to be committed aside to checkout/switch to another branch
@@ -199,19 +194,23 @@ Use git `stash` when you want to record the current state of the working directo
 git stash
 ```
 
-Use `-u` flag if you want to stash untracked files:
+### Use `-u` flag if you want to stash untracked files:
 
 ```
 git stash -u
 ```
 
+### Add message
+
+Calling `git stash` without any arguments is equivalent to `git stash push`. For quickly making a snapshot, you can omit "push". In this mode, non-option arguments are not allowed to prevent a misspelled subcommand from making an unwanted stash entry. If optional arguments are necessary like `-m` for message `push` is required.
+
 To add a specific message to a stash:
 ```
 git stash push -m 'my comment'
 ```
+*Note: in the documentation, `git stash save` has been deprecated in favor of `git stash push`.*
 
-
-### *List Stashed Changes*
+### List Stashed Changes
 The modifications stashed away by this command can be listed with `git stash list`
 
 ```
@@ -219,9 +218,10 @@ $ git stash list
 
 stash@{0}: WIP on master: dcfa333 Update: markup
 ```
-Note above specifies a stash index of '0' for *stash@{0}: ...*
+Note above specifies a stash index of '0' for `stash@{0}: ...`
 
-### *Restore Stashed Changes*
+
+### Restore Stashed Changes
 
 Use `apply` to restore specific stash to working directory. Need to specify stash index. Use `git stash list` to view all stash records by index.
 
@@ -229,7 +229,8 @@ Use `apply` to restore specific stash to working directory. Need to specify stas
 $ git stash apply stash_index
 ```
 
-### *Show Stashed Changes*
+
+### Show Stashed Changes
 
 ```
 git stash show -p stash_index
@@ -237,7 +238,7 @@ git stash show -p stash_index
 `-p` is option, will show details of stashed changes. Not including will show only files that are saved in stash.
 
 
-### *Create Branch from Stashed Changes*
+### Create Branch from Stashed Changes
 
 Use:
 - Realize current work should be on a different branch
