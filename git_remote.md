@@ -20,9 +20,10 @@ Then use below command to link local repo to remote repo
 $ git remote add <name> <repository url>
 ```
 
-*example: git remote add origin http(s)://github.com/reponame.*
+> Example: *git remote add origin http(s)://github.com/reponame.*  
 
-*Note: origin is the recommended default name used primary repository on GitHub. It is not restricted and you can use your own name.*
+
+> Note: *origin is the recommended default name used primary repository on GitHub. It is not restricted and you can use your own name.*
 
 
 ## List Remote Info (verbose)
@@ -30,33 +31,32 @@ $ git remote add <name> <repository url>
 Will list remote connection names and URLs.
 
 ```
-$ git remote -v
-
+git remote -v
+```
+Output:
 > origin http://fakeurl (fetch)
 > origin http://fakeurl (push)
-```
 
 
 ## Add Second Remote Repo
 
 If you want to save local repo to two different remote repos first add the addition remote repo location using same 'remote add' command with different shorthand name:
 ```
-$ git remote add <different_shortname> <url>
+git remote add <different_shortname> <url>
 ```
 
-example:  
+Example:  
 By convention, the original / primary remote repo is called origin. Here’s a real example:  
 
-*Add remote 1: GitHub*
+Add remote 1: GitHub
 ```
-$ git remote add origin git@github.com:jigarius/toggl2redmine.git
-```
-
-*Add remote 2: BitBucket*
-```
-$ git remote add reponame2 git@bitbucket.org:jigarius/toggl2redmine.git
+git remote add origin git@github.com:jigarius/toggl2redmine.git
 ```
 
+Add remote 2: BitBucket
+```
+git remote add reponame2 git@bitbucket.org:jigarius/toggl2redmine.git
+```
 
 
 ## Renaming a Remote Repo
@@ -68,13 +68,13 @@ The git remote rename command takes two arguments:
 * A new name for the remote, for example, destination
 
 ```
-$ git remote rename <oldname> <newname>
+git remote rename <oldname> <newname>
 ```
 
 ## Remove Remote Repo
 
 ```
-$ git remote rm <name>
+git remote rm <name>
 ```
 
 
@@ -82,7 +82,7 @@ $ git remote rm <name>
 The git remote set-url command changes an existing remote repository URL.
 
 ```
-$ git remote set-url origin https://github.com/USERNAME/REPOSITORY.git
+git remote set-url origin https://github.com/USERNAME/REPOSITORY.git
 ```
 
 
@@ -96,14 +96,13 @@ Incorporates changes from a remote repository into the current branch.
 - If the current branch and the remote have diverged, the user needs to specify how to reconcile the divergent branches with --rebase or --no-rebase (or the corresponding configuration option in pull.rebase).
 
 ```
-$ git pull <remote> <branch>
+git pull <remote> <branch>
 ```
 
 ### Pulling remote repo into local repo with exising files
 pulling into local directory will possibly overwrite local repo files 
 
-*To be able to push to your remote repository, you must ascertain that all your changes to the local repository are committed.*
-
+> Note: *To be able to push to your remote repository, you must ascertain that all your changes to the local repository are committed.*
 
 
 ## Git push
@@ -112,7 +111,7 @@ Updates remote refs using local refs
 
 To push the current branch and set the remote as upstream, use:
 ```
-$ git push --set-upstream origin master
+git push --set-upstream origin master
 ```
 
 ### Create & Push New Remote Branch
@@ -130,7 +129,7 @@ git push --set-upstream origin <new_branch_name>
 When the command line does not specify where to push with the \<repository\> argument, branch.*.remote configuration for the current branch is consulted to determine where to push. If the configuration is missing, it defaults to origin.
 
 ```
-$ git push origin --repo=<repository>
+git push origin --repo=<repository>
 ```
 
 
@@ -141,11 +140,12 @@ Simple of it is just run the push command specifying the 'remote name' & 'branch
 
 *First remote repo*
 ```
- $ git push origin
+git push origin
 ```
+
 *Second remote repo*
- ```
- $ git push reponame2
+```
+git push reponame2
 ```
 
 
