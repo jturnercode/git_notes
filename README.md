@@ -26,7 +26,7 @@ Git is fast and modern:
 
 ## Topics
 
-- [Git Configuration](git_config.md)
+- [Git Install & Configuration](git_config.md)
 - [Basics](git_basics.md)
     - init
     - add
