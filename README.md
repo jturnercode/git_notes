@@ -41,8 +41,12 @@ Git is fast and modern:
     - Merge
     - Stash
 - [Remote Repositories](git_remote.md)
-    - Push
+    - Add Remote Repo
+    - Add Second Remote Repo
+    - Rename Remote Repo
+    - Remove Remote Repo
     - Pull
+    - Push
 - [Clone](clone.md)
 - Fix Recent Changes  
     - [Restore](restore.md)

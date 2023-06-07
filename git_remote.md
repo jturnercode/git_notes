@@ -86,10 +86,7 @@ git remote set-url origin https://github.com/USERNAME/REPOSITORY.git
 ```
 
 
-
-# Push & Pull
-
-## Git pull
+## git pull
 
 Incorporates changes from a remote repository into the current branch.
 - If the current (local) branch is behind the remote, then by default it will fast-forward the current branch to match the remote. **This will overwrite local files.**
@@ -99,14 +96,11 @@ Incorporates changes from a remote repository into the current branch.
 git pull <remote> <branch>
 ```
 
-### Pulling remote repo into local repo with exising files
-pulling into local directory will possibly overwrite local repo files 
-
-> Note: *To be able to push to your remote repository, you must ascertain that all your changes to the local repository are committed.*
+> Note?: Pulling into local directory will possibly overwrite local repo files 
 
 
-## Git push
-Updates remote refs using local refs  
+## git push
+Updates remote repos using local repo.  
 
 
 To push the current branch and set the remote as upstream, use:
@@ -114,7 +108,18 @@ To push the current branch and set the remote as upstream, use:
 git push --set-upstream origin master
 ```
 
+### --force
+
+ Force the push even if it results in a non-fast-forward merge. 
+
+ ```
+ git push --force
+ ```
+ 
+ > **Do not use the `--force` flag unless you’re absolutely sure you know what you’re doing.**
+
 ### Create & Push New Remote Branch
+
 After creating a new branch and committing changes locally.
 If remote branch does not exist running `git push` will result in error.
 
@@ -131,7 +136,6 @@ When the command line does not specify where to push with the \<repository\> arg
 ```
 git push origin --repo=<repository>
 ```
-
 
 
 ### Push to multiple remotes (one at time)
