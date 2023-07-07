@@ -51,6 +51,7 @@ Git is fast and modern:
 - [Clone](clone.md)
 - Fix Recent Changes  
     - [Restore](restore.md)
+    - [Revert to Previous Commit (TODO)](revertHistory.md)
     - [Amend Commit](amend.md)
 - [Fix Old Changes](Fix_Old_Changes.md)
 - Specific Actions
