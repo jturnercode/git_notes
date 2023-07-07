@@ -38,6 +38,7 @@ Git is fast and modern:
     - log
     - show
 - [Branches](git_branches.md)
+    - Basics
     - Merge
     - Stash
 - [Remote Repositories](git_remote.md)
