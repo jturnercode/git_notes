@@ -151,12 +151,18 @@ Remember to commit file rename change as needed.
 
 To remove files from local directory and staging area  
 ```
-git rm file_name
+git rm <file_name>
 ```
 
 Then commit this change to update repository  
 ```
 git commit –m "deleted file_name"
+```
+
+## Removing folder  
+
+```
+git rm -r <folder_name>
 ```
 
 ## Untrack Committed File  
@@ -171,7 +177,7 @@ $ git rm --cached <filename>
 ## Untrack Committed Folder
 
 ```
-$ git rm -r --cached <folder>
+$ git rm -r --cached <folder_name>
 ```
 
 ## git log
