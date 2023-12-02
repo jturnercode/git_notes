@@ -131,7 +131,7 @@ git remote -v
 
 ### Pull Remote Branch
 
-[see pull remote branch section here](git_remote.md)
+[See pull remote branch section here](git_remote.md#pull-remote-branch)
 
 ### Delete Remote Branch
 
