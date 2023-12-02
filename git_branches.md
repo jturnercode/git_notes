@@ -1,33 +1,33 @@
-# Git Branches  
+# Git Branches
 
 [More Info](https://www.atlassian.com/git/tutorials/using-branches)
 
 ## Core Concepts
 
 ### Head Branch
+
 HEAD branch is the currently active or checked out branch.  
 When running `git status` you will see it listed in output.
 
 ```
-git status 
-```        
+git status
+```
 
 Output:
+
 ```
- On branch master  
+ On branch master
  Your branch is up to date with 'origin/master'.
 ```
 
 > `master` is the current local branch
 > `origin/master` is the remote branch in this case
 
-
 ### Local & Remote Branches
 
 Most of time we are working with **local branches** that reside on our local machine within our git repository.  
 The **remote branches** reside on network server or cloud with services like Github.
 Local branches are synced with remote branches.
-
 
 ## Branch Commands
 
@@ -40,25 +40,26 @@ git branch
 ```
 
 Output:
+
 ```
 * master
   temp
 ```
 
-> *NOTE: the active branch is noted with asterisk(\*)*
-
+> _NOTE: the active branch is noted with asterisk(\*)_
 
 ### List Local and Remote Branches
 
 ```
-git branch -a  
+git branch -a
 ```
 
 Output:
+
 ```
-* master  
-  remotes/origin/main  
-  remotes/origin/master  
+* master
+  remotes/origin/main
+  remotes/origin/master
 ```
 
 ### Create New Branch
@@ -67,24 +68,22 @@ Output:
 git branch <branch_name>
 ```
 
-Note: 
+Note:
+
 1. Branches can only be created in local repository, then pushed to remote repo.
 2. After creating a new branch you must `switch` to new branch before begining work.  
-**See important note in section 'Switch Between Branches'.**
-
-
+   **See important note in section 'Switch Between Branches'.**
 
 ### Switch Between Branches
 
-> *NOTE: if your working directory or staging area has uncommitted changes that conflict with the branch you’re checking out, Git won’t let you switch branches. It’s best to have a clean working state when you switch branches. There are ways to get around this namely, stashing and commit amending.*
+> _NOTE: if your working directory or staging area has uncommitted changes that conflict with the branch you’re checking out, Git won’t let you switch branches. It’s best to have a clean working state when you switch branches. There are ways to get around this namely, stashing and commit amending._
 
-
-When wanting to work on a specific branch, you must first checkout or switch to that branch. `git branch` will give list of all branches with the current active branch noted with '*'.
+When wanting to work on a specific branch, you must first checkout or switch to that branch. `git branch` will give list of all branches with the current active branch noted with '\*'.
 
 > NOTE: It is recommended to use `switch`, as it sole purpose is to select branches.
 
 ```
-git switch branch_name
+git switch <branch_name>
 ```
 
 ### Checkout Branch
@@ -95,52 +94,56 @@ git switch branch_name
 git checkout branch_name
 ```
 
-
 ### Delete Local Branch
 
 Delete local branch.
 
 ```
-git branch -d local_branch_name
+git branch -d <local_branch_name>
 ```
 
-Git might refuse to delete your local branch when it contains commits that *have been merged into any other local branches or pushed to a remote repository. This is a very sensible rule that protects you from inadvertently losing commit data.*  
+Git might refuse to delete your local branch when it contains commits that _have been merged into any other local branches or pushed to a remote repository. This is a very sensible rule that protects you from inadvertently losing commit data._
 
-
-> *NOTE:* **Use Caution with below!!**  
-If you want force a delete of a branch nonetheless (e.g. because you've programmed yourself into a dead end and produced commits that aren't worth keeping) you can do so with the "-D" flag:
+> _NOTE:_ **Use Caution with below!!**  
+> If you want force a delete of a branch nonetheless (e.g. because you've programmed yourself into a dead end and produced commits that aren't worth keeping) you can do so with the "-D" flag:
 
 ```
-git branch -D local_branch_name
+git branch -D <local_branch_name>
 ```
-
 
 ### Push New Branch to Repo
 
 **UN-verified, NEED TO TEST below code**
+
 ```
 git push -u <remote> <branch_name>
 ```
-We usually use the shortname for 'remote' url, typically 'origin'  
 
-The `-u` flag creates a tracking reference for every branch that you successfully push onto the remote repository. The local branch you push is automatically linked with the remote branch. This allows you to use commands such as git pull without any arguments.  
+We usually use the shortname for 'remote' url, typically 'origin'
+
+The `-u` flag creates a tracking reference for every branch that you successfully push onto the remote repository. The local branch you push is automatically linked with the remote branch. This allows you to use commands such as git pull without any arguments.
 
 To check existing remote links and verify shortnames use:
+
 ```
 git remote -v
 ```
 
+### Pull Remote Branch
+
+[see pull remote branch section here](git_remote.md)
 
 ### Delete Remote Branch
 
 To delete a remote branch, you need to use the "git push" command:
+
 ```
 git push <remote> --delete <remote-branch-name<>
 ```
 
 ### Rename a branch
-*??*
 
+_??_
 
 ### Summary of Feature Branch Workflow
 
@@ -175,16 +178,14 @@ git push origin feature_name
 
 Your team lead reviews the code and merges it to the main branch.
 
-
-
 ## Merge
 
 ### Basic Merge Steps
 
-Suppose you are ready to merge a branch back to *main* branch.  
+Suppose you are ready to merge a branch back to _main_ branch.
 
 1. First commit any changes.
-2. Make sure the *main* is the head(active) branch. Run:
+2. Make sure the _main_ is the head(active) branch. Run:
 
 ```
 git switch main
@@ -204,18 +205,16 @@ git branch -d <branch name>
 
 [See more info on merge](https://www.atlassian.com/git/tutorials/using-branches/git-merge)
 
-
-
 ### Merge Conflicts
 
 See link for info on dealing with merge conficts.
 
 https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line
 
-
 ## Stash
 
 Uses:
+
 - Put changes that are not ready to be committed aside to checkout/switch to another branch
 - Apply stashed changes back later to branch
 - The above steps are needed becasue you cannot switch/checkout another branch with a dirty directory.
@@ -241,13 +240,15 @@ Calling `git stash` without any arguments is equivalent to `git stash push`. For
 If optional arguments are necessary like `-m` for message `push` is required.
 
 To add a specific message to a stash:
+
 ```
 git stash push -m 'my comment'
 ```
-> *NOTE: in the documentation, `git stash save` has been deprecated in favor of `git stash push`.*
 
+> _NOTE: in the documentation, `git stash save` has been deprecated in favor of `git stash push`._
 
 ### Stash List
+
 View a list of stashes with `git stash list`.
 
 ```
@@ -255,11 +256,12 @@ git stash list
 ```
 
 output:
+
 ```
 stash@{0}: WIP on master: dcfa333 Update: markup
 ```
 
-> *NOTE: above specifies a stash id of '0' for `stash@{0}: ...`*
+> _NOTE: above specifies a stash id of '0' for `stash@{0}: ...`_
 
 ### Stash Show
 
@@ -268,14 +270,14 @@ Shows the summary of the stash diffs between existing file and stashed file.
 ```
 git stash show -p
 ```
+
 `-p` is option, will show details of stashed changes. Not including will show only files that are saved in stash.
 
-
 Specify a stash id to get the diff summary.
+
 ```
 git stash show stash@{n}
 ```
-
 
 ### Stash Drop
 
@@ -285,17 +287,15 @@ Remove a single stash entry from the list of stash entries.
 git stash drop stash@{n}
 ```
 
-
 ### Stash Pop
 
 Remove a single stashed state from the stash list and apply it on top of the current working tree state.
 
-Applying the state can fail with conflicts; in this case, it is not removed from the stash list. You need to resolve the conflicts by hand and call git stash drop manually afterwards.  
+Applying the state can fail with conflicts; in this case, it is not removed from the stash list. You need to resolve the conflicts by hand and call git stash drop manually afterwards.
 
 ```
 git stash pop stash@{n}
 ```
-
 
 ### Stash Apply
 
@@ -310,6 +310,7 @@ git stash apply stash@{n}
 ```
 
 Or:
+
 ```
 git stash apply n
 ```
@@ -317,6 +318,7 @@ git stash apply n
 ### Create Branch from Stashed Changes
 
 Use:
+
 - Realize current work should be on a different branch
 - First save changes to a stash
 - Run `git stash branch` to create and switch to new branch
